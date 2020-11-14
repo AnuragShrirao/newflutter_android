@@ -43,9 +43,7 @@ class ServiceList extends StatelessWidget {
                         borderRadius: BorderRadius.circular(23),
                         image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: NetworkImage(
-                            "https://firebasestorage.googleapis.com/v0/b/shopapp-354c8.appspot.com/o/all%2F5.jpg?alt=media&token=a4e6200a-2aa8-480e-8c49-7df4db709744",
-                          ),
+                          image:AssetImage("image/etroplus.jpeg"),
                         )
                     ),
                   ),

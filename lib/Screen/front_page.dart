@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:newflutter_android/Screen/my_cart_page.dart';
 import 'package:newflutter_android/Screen/service_list.dart';
-
+import 'package:newflutter_android/Screen/notification_page.dart';
 class FrontPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -25,14 +26,18 @@ class FrontPage extends StatelessWidget {
                     Icons.notifications,
                     size: 28,
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>NotificationPage(),),);
+                  },
                 ),
                 InkWell(
                   child: Icon(
                     Icons.shopping_cart,
                     size: 28,
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MyCart(),),);
+                  },
                 ),
               ],
             ),
@@ -42,7 +47,10 @@ class FrontPage extends StatelessWidget {
             Container(
               width: double.infinity,
               height: MediaQuery.of(context).size.height * 0.06,
-              color: Colors.white,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(5),
+              ),
             ),
           ],
         ),
@@ -58,9 +66,7 @@ class FrontPage extends StatelessWidget {
                   shape: BoxShape.rectangle,
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: NetworkImage(
-                      "https://firebasestorage.googleapis.com/v0/b/shopapp-354c8.appspot.com/o/all%2F5.jpg?alt=media&token=a4e6200a-2aa8-480e-8c49-7df4db709744",
-                    ),
+                    image:AssetImage("image/etroplus.jpeg"),
                   )),
             ),
           ),
@@ -136,6 +142,14 @@ class FrontPage extends StatelessWidget {
             color: Colors.cyanAccent,
             onTap: ServiceList(categoryName: "Electric Services",),
           ),
+          ServiceContainer(
+            serviceCategory: "Plumber Service",
+            serviceName1: "Refrigerator Installation",
+            serviceName2: "AC Repair",
+            color: Colors.orangeAccent,
+            onTap: ServiceList(categoryName: "Plumber Service",),
+          ),
+
         ],
       ),
     );
@@ -195,9 +209,10 @@ class ServiceContainer extends StatelessWidget {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => onTap));
               },
-              child: Text("View All Services",style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold),),
-              color: Colors.cyan,
+              child: Text("View All Services",style: TextStyle(fontSize: 17,),),
+              color: Colors.lightBlueAccent,
             ),
+            SizedBox(height: 10,),
           ],
         ),
       ),
@@ -227,7 +242,7 @@ _boxContainer() {
               Icon(Icons.supervisor_account_sharp),
               Text(
                 "Electrician",
-                style: TextStyle(fontSize: 13),
+                style: TextStyle(fontSize: 11,fontWeight: FontWeight.bold),
               ),
             ],
           )),
