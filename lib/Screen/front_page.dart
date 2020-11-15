@@ -1,3 +1,4 @@
+import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:newflutter_android/Screen/my_cart_page.dart';
 import 'package:newflutter_android/Screen/service_list.dart';
@@ -62,12 +63,28 @@ class FrontPage extends StatelessWidget {
             child: Container(
               height: MediaQuery.of(context).size.height * 0.33,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  shape: BoxShape.rectangle,
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image:AssetImage("image/etroplus.jpeg"),
-                  )),
+                borderRadius: BorderRadius.circular(56),
+              ),
+              child: Carousel(
+                borderRadius: true,
+                radius: Radius.circular(15),
+                boxFit: BoxFit.fitWidth,
+                images: [
+                  AssetImage("image/etroplus.jpeg"),
+                  AssetImage("image/etroplus.jpeg"),
+                  AssetImage("image/etroplus.jpeg"),
+                  AssetImage("image/etroplus.jpeg"),
+                  AssetImage("image/etroplus.jpeg"),
+                  AssetImage("image/etroplus.jpeg"),
+                ],
+                autoplay: false,
+                dotBgColor: Colors.transparent,
+                animationCurve: Curves.fastOutSlowIn,
+                animationDuration: Duration(milliseconds: 3000),
+                dotSize: 6.0,
+                dotColor: Colors.blue,
+                indicatorBgPadding: 8.0,
+              ),
             ),
           ),
           Padding(
@@ -85,16 +102,27 @@ class FrontPage extends StatelessWidget {
                     child: Container(
                       height: 60,
                       width: double.infinity,
-                      child: Center(
-                          child: Text(
-                            "Offer Slides",
-                            style:
-                            TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                          )),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        shape: BoxShape.rectangle,
-                        color: Colors.cyanAccent,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Carousel(
+                          borderRadius: true,
+                          radius: Radius.circular(20),
+                          boxFit: BoxFit.fill,
+                          images: [
+                            AssetImage("image/etroplus3.jpeg"),
+                            AssetImage("image/etroplus3.jpeg"),
+                            AssetImage("image/etroplus3.jpeg"),
+                            AssetImage("image/etroplus3.jpeg"),
+
+                          ],
+                          autoplay: true,
+                          dotBgColor: Colors.transparent,
+                          animationCurve: Curves.fastOutSlowIn,
+                          animationDuration: Duration(milliseconds: 2000),
+                          dotSize: 0.0,
+                          dotColor: Colors.blue,
+                          indicatorBgPadding: 8.0,
+                        ),
                       ),
                     ),
                   ),
@@ -240,9 +268,11 @@ _boxContainer() {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(Icons.supervisor_account_sharp),
-              Text(
-                "Electrician",
-                style: TextStyle(fontSize: 11,fontWeight: FontWeight.bold),
+              FittedBox(
+                child: Text(
+                  "Electrician",
+                  style: TextStyle(fontSize: 13,fontWeight: FontWeight.bold),
+                ),
               ),
             ],
           )),
