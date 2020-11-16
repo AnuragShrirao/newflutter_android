@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:newflutter_android/Screen/service_details_page.dart';
+
+import 'my_cart_page.dart';
+import 'notification_page.dart';
 
 class ServiceList extends StatefulWidget {
   final categoryName;
@@ -11,8 +15,6 @@ class ServiceList extends StatefulWidget {
 }
 
 class _ServiceListState extends State<ServiceList> {
-  var itemNo = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +27,10 @@ class _ServiceListState extends State<ServiceList> {
               Icons.notifications,
               size: 28,
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => NotificationPage()));
+            },
           ),
           SizedBox(width: 10),
           InkWell(
@@ -33,112 +38,57 @@ class _ServiceListState extends State<ServiceList> {
               Icons.shopping_cart,
               size: 28,
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => MyCart()));
+            },
           ),
           SizedBox(width: 20),
         ],
       ),
       body: ListView(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.15,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      // height: 300,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(23),
-                          image: DecorationImage(
-                            fit: BoxFit.fitWidth,
-                            image: AssetImage("image/etroplus.jpeg"),
-                          )),
-                    ),
-                    flex: 2,
-                  ),
-                  Expanded(
-                    flex: 3,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        FittedBox(
-                            child: Text(
-                          "Hair Spa(Short Hair)",
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
-                        )),
-                        Text(
-                          "Get Extra 30% benefits on Hair",
-                          maxLines: 2,
-                          style: TextStyle(fontSize: 15),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: Icon(
-                                Icons.local_offer,
-                                color: Colors.green,
-                              ),
-                            ),
-                            Expanded(
-                              child: Text(
-                                "\u20B9 300",
-                                style: TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                            Expanded(
-                              child: Text(
-                                "\u20B9 200",
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    decoration: TextDecoration.lineThrough),
-                              ),
-                            ),
-                            Expanded(
-                              child: IconButton(
-                                  icon: CircleAvatar(
-                                    radius: 15,
-                                    child: Icon(
-                                      Icons.add,
-                                      color: Colors.white,
-                                    ),
-                                    backgroundColor: Colors.blue,
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      itemNo = itemNo + 1;
-                                    });
-                                  }),
-                            ),
-                            Text("$itemNo"),
-                            Expanded(
-                              child: IconButton(
-                                  icon: CircleAvatar(
-                                    radius: 15,
-                                    child: Icon(
-                                      Icons.remove,
-                                      color: Colors.white,
-                                    ),
-                                    backgroundColor: Colors.blue,
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      itemNo--;
-                                    });
-                                  }),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
+          SingleService(
+            serviceImage: AssetImage("image/etroplus.jpeg"),
+            serviceOldPrice: 500,
+            servicePrice: 250,
+            serviceSubTitle: "Get Extra 30% benefits on Hair",
+            serviceTitle: "Hair Spa(Short Hair)",
+          ),
+          SingleService(
+            serviceImage: AssetImage("image/etroplus.jpeg"),
+            serviceOldPrice: 500,
+            servicePrice: 250,
+            serviceSubTitle: "Get Extra 30% benefits on Hair",
+            serviceTitle: "Hair Spa(Short)",
+          ),
+          SingleService(
+            serviceImage: AssetImage("image/etroplus.jpeg"),
+            serviceOldPrice: 500,
+            servicePrice: 250,
+            serviceSubTitle: "Get Extra 30% benefits on Hair",
+            serviceTitle: "Hair Spa(Short Hairs)",
+          ),
+          SingleService(
+            serviceImage: AssetImage("image/etroplus.jpeg"),
+            serviceOldPrice: 500,
+            servicePrice: 250,
+            serviceSubTitle: "Get Extra 30% benefits on Hair",
+            serviceTitle: "Hair Spa (Short Hair)",
+          ),
+          SingleService(
+            serviceImage: AssetImage("image/etroplus.jpeg"),
+            serviceOldPrice: 500,
+            servicePrice: 250,
+            serviceSubTitle: "Get Extra 30% benefits on Hair",
+            serviceTitle: "Hair Spa(Short Hair) ",
+          ),
+          SingleService(
+            serviceImage: AssetImage("image/etroplus.jpeg"),
+            serviceOldPrice: 500,
+            servicePrice: 250,
+            serviceSubTitle: "Get Extra 30% benefits on Hair",
+            serviceTitle: "Hair Spa(Short Hair )",
           ),
         ],
       ),
@@ -146,4 +96,145 @@ class _ServiceListState extends State<ServiceList> {
   }
 }
 
-// https://firebasestorage.googleapis.com/v0/b/shopapp-354c8.appspot.com/o/all%2F5.jpg?alt=media&token=a4e6200a-2aa8-480e-8c49-7df4db709744
+
+
+
+//Method for single service list
+
+class SingleService extends StatefulWidget {
+  final serviceTitle;
+  final serviceSubTitle;
+  final servicePrice;
+  final serviceImage;
+  final serviceOldPrice;
+
+  SingleService(
+      {this.serviceImage,
+      this.serviceOldPrice,
+      this.serviceSubTitle,
+      this.servicePrice,
+      this.serviceTitle});
+
+  @override
+  _SingleServiceState createState() => _SingleServiceState();
+}
+
+class _SingleServiceState extends State<SingleService> {
+  var itemNo = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => ServiceDetailsPage(heroTag: widget.serviceTitle,)));
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          height: MediaQuery.of(context).size.height * 0.15,
+          child: Row(
+            children: [
+              Expanded(
+                child: Hero(
+                  tag: widget.serviceTitle,
+                  child: Container(
+                    // height: 300,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(23),
+                        image: DecorationImage(
+                          fit: BoxFit.fitWidth,
+                          image: widget.serviceImage,
+                        )),
+                  ),
+                ),
+                flex: 2,
+              ),
+              Expanded(
+                flex: 3,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    FittedBox(
+                        child: Text(
+                      widget.serviceTitle.toString(),
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    )),
+                    Text(
+                      widget.serviceSubTitle.toString(),
+                      maxLines: 2,
+                      style: TextStyle(fontSize: 15),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Icon(
+                            Icons.local_offer,
+                            color: Colors.green,
+                          ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            "\u20B9 " + widget.servicePrice.toString(),
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            "\u20B9 " + widget.serviceOldPrice.toString(),
+                            style: TextStyle(
+                                fontSize: 15,
+                                decoration: TextDecoration.lineThrough),
+                          ),
+                        ),
+                        Expanded(
+                          child: IconButton(
+                              icon: CircleAvatar(
+                                radius: 15,
+                                child: Icon(
+                                  Icons.add,
+                                  color: Colors.white,
+                                ),
+                                backgroundColor: Colors.blue,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  itemNo = itemNo + 1;
+                                });
+                              }),
+                        ),
+                        Text("$itemNo"),
+                        Expanded(
+                          child: IconButton(
+                              icon: CircleAvatar(
+                                radius: 15,
+                                child: Icon(
+                                  Icons.remove,
+                                  color: Colors.white,
+                                ),
+                                backgroundColor: Colors.blue,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  if(itemNo!=0)
+                                    {
+                                      itemNo--;
+                                    }
+                                });
+                              }),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

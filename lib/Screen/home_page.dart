@@ -26,19 +26,21 @@ class _HomePageState extends State<HomePage> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _screen.elementAt(_selectedIndex),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.assignment_turned_in),label: "Booking",),
-          BottomNavigationBarItem(icon: Icon(Icons.help),label: "Help",),
-          BottomNavigationBarItem(icon: Icon(Icons.account_circle),label: "Profile",),
-        ],
-        unselectedItemColor: Colors.black,
-        onTap: _onItemTapped,
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
+    return SafeArea(
+      child: Scaffold(
+        body: _screen.elementAt(_selectedIndex),
+        bottomNavigationBar: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
+            BottomNavigationBarItem(icon: Icon(Icons.assignment_turned_in),label: "Booking",),
+            BottomNavigationBarItem(icon: Icon(Icons.help),label: "Help",),
+            BottomNavigationBarItem(icon: Icon(Icons.account_circle),label: "Profile",),
+          ],
+          unselectedItemColor: Colors.black,
+          onTap: _onItemTapped,
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.blue,
+        ),
       ),
     );
   }

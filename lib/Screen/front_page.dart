@@ -297,13 +297,19 @@ Expanded service(
               height: MediaQuery.of(context).size.height * 0.25,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                color: color,
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage("image/etroplus.jpeg"),
+                )
+                // color: color,
               ),
             ),
             Center(
-                child: Text(
-                  serviceName,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                child: FittedBox(
+                  child: Text(
+                    serviceName,
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
                 )),
           ],
         ),
