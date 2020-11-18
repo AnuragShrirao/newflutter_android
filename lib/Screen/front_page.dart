@@ -214,7 +214,7 @@ class ServiceContainer extends StatelessWidget {
             ListTile(
               title: Text(
                 serviceCategory,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23),
               ),
               subtitle: Text("Deals with Exciting rates"),
             ),
@@ -294,7 +294,7 @@ Expanded service(
         child: Column(
           children: [
             Container(
-              height: MediaQuery.of(context).size.height * 0.25,
+              height: MediaQuery.of(context).size.height * 0.20,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 image: DecorationImage(
