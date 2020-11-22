@@ -7,7 +7,6 @@ import 'notification_page.dart';
 
 class ServiceList extends StatefulWidget {
   final categoryName;
-
   ServiceList({this.categoryName});
 
   @override
@@ -51,10 +50,11 @@ class _ServiceListState extends State<ServiceList> {
           SingleService(
             serviceImage: AssetImage("image/etroplus.jpeg"),
             serviceOldPrice: 500,
-            servicePrice: 250,
+            servicePrice: 25,
             serviceSubTitle: "Get Extra 30% benefits on Hair",
             serviceTitle: "Hair Spa(Short Hair)",
           ),
+          Divider(),
           SingleService(
             serviceImage: AssetImage("image/etroplus.jpeg"),
             serviceOldPrice: 500,
@@ -62,13 +62,21 @@ class _ServiceListState extends State<ServiceList> {
             serviceSubTitle: "Get Extra 30% benefits on Hair",
             serviceTitle: "Hair Spa(Short)",
           ),
+          Divider(),
+
           SingleService(
             serviceImage: AssetImage("image/etroplus.jpeg"),
             serviceOldPrice: 500,
             servicePrice: 250,
-            serviceSubTitle: "Get Extra 30% benefits on Hair",
+            serviceSubTitle: "Get Extra 30% benefits on Hair adhasd asdasdjsdnacn asckjajsdja"
+                "asdkjasj   asdlkasdlkasd asdlkasdasd"
+                "asdlkassdlkasdmasdkasd as"
+                "sdasdasdasdsad"
+                "",
             serviceTitle: "Hair Spa(Short Hairs)",
           ),
+          Divider(),
+
           SingleService(
             serviceImage: AssetImage("image/etroplus.jpeg"),
             serviceOldPrice: 500,
@@ -76,6 +84,8 @@ class _ServiceListState extends State<ServiceList> {
             serviceSubTitle: "Get Extra 30% benefits on Hair",
             serviceTitle: "Hair Spa (Short Hair)",
           ),
+          Divider(),
+
           SingleService(
             serviceImage: AssetImage("image/etroplus.jpeg"),
             serviceOldPrice: 500,
@@ -83,6 +93,8 @@ class _ServiceListState extends State<ServiceList> {
             serviceSubTitle: "Get Extra 30% benefits on Hair",
             serviceTitle: "Hair Spa(Short Hair) ",
           ),
+          Divider(),
+
           SingleService(
             serviceImage: AssetImage("image/etroplus.jpeg"),
             serviceOldPrice: 500,
@@ -90,6 +102,8 @@ class _ServiceListState extends State<ServiceList> {
             serviceSubTitle: "Get Extra 30% benefits on Hair",
             serviceTitle: "Hair Spa(Short Hair )",
           ),
+          Divider(),
+
         ],
       ),
     );
@@ -120,19 +134,19 @@ class SingleService extends StatefulWidget {
 }
 
 class _SingleServiceState extends State<SingleService> {
-  var itemNo = 0;
+  var itemNo = 1;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => ServiceDetailsPage(heroTag: widget.serviceTitle,)));
+            MaterialPageRoute(builder: (context) => ServiceDetailsPage(heroTag: widget.serviceTitle,productDetailName: widget.serviceTitle,productDetailOldPrice: widget.serviceOldPrice.toString(),productDetailPrice: widget.servicePrice.toString(),productDetailDetails: widget.serviceSubTitle,productDetailQuantity: itemNo,)));
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.15,
+          height: 95,
           child: Row(
             children: [
               Expanded(
@@ -141,7 +155,7 @@ class _SingleServiceState extends State<SingleService> {
                   child: Container(
                     // height: 300,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(23),
+                        borderRadius: BorderRadius.circular(12),
                         image: DecorationImage(
                           fit: BoxFit.fitWidth,
                           image: widget.serviceImage,
@@ -163,7 +177,7 @@ class _SingleServiceState extends State<SingleService> {
                     )),
                     Text(
                       widget.serviceSubTitle.toString(),
-                      maxLines: 2,
+                      maxLines: 1,
                       style: TextStyle(fontSize: 15),
                     ),
                     Row(
@@ -219,7 +233,7 @@ class _SingleServiceState extends State<SingleService> {
                               ),
                               onPressed: () {
                                 setState(() {
-                                  if(itemNo!=0)
+                                  if(itemNo!=1)
                                     {
                                       itemNo--;
                                     }
