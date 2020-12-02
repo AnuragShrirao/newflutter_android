@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'home_page.dart';
+
 //Constants
-const kInputDecoration=InputDecoration(
+const kInputDecoration = InputDecoration(
   hintText: 'Enter your Mobile No',
-  contentPadding:
-  EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+  contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
   border: OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(10.0)),
   ),
@@ -19,8 +19,6 @@ const kInputDecoration=InputDecoration(
     borderRadius: BorderRadius.all(Radius.circular(10.0)),
   ),
 );
-
-
 
 // Page Code
 class LogInPage extends StatefulWidget {
@@ -59,22 +57,21 @@ class _LogInPageState extends State<LogInPage> {
             ),
           ),
           SizedBox(
-            width: MediaQuery.of(context).size.width*0.4,
+            width: MediaQuery.of(context).size.width * 0.4,
             child: RaisedButton(
               color: Colors.cyanAccent,
               child: Text("Log In"),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
-              onPressed: (){
-                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>HomePage()));
+              onPressed: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => HomePage()));
               },
             ),
           )
-
         ],
       ),
     );
   }
 }
-

@@ -16,10 +16,17 @@ class ServiceDetailsPage extends StatefulWidget {
   final productDetailName;
   final productDetailPrice;
   final productDetailOldPrice;
+
   // final productDetailPicture;
   var productDetailQuantity;
 
-  ServiceDetailsPage({this.heroTag,this.productDetailName,this.productDetailOldPrice,this.productDetailPrice,this.productDetailDetails,this.productDetailQuantity});
+  ServiceDetailsPage(
+      {this.heroTag,
+      this.productDetailName,
+      this.productDetailOldPrice,
+      this.productDetailPrice,
+      this.productDetailDetails,
+      this.productDetailQuantity});
 
   @override
   _ServiceDetailsPageState createState() => _ServiceDetailsPageState();
@@ -44,15 +51,14 @@ class _ServiceDetailsPageState extends State<ServiceDetailsPage>
 
   @override
   Widget build(BuildContext context) {
-
     no = widget.productDetailQuantity;
     discountPrice = int.parse(widget.productDetailOldPrice) -
         int.parse(widget.productDetailPrice);
     charge = 20;
     offer = (100 -
-        ((int.parse(widget.productDetailPrice) /
-            int.parse(widget.productDetailOldPrice)) *
-            100))
+            ((int.parse(widget.productDetailPrice) /
+                    int.parse(widget.productDetailOldPrice)) *
+                100))
         .round();
     total = int.parse(widget.productDetailPrice) * no + charge;
     if (total <= 300) {
@@ -101,8 +107,8 @@ class _ServiceDetailsPageState extends State<ServiceDetailsPage>
                   onTapUp: _onTapUp,
                   onTapDown: _onTapDown,
                   onTap: () {
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => ImagePreview()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => ImagePreview()));
                   },
                   child: Transform.scale(
                     scale: scale,
@@ -154,12 +160,12 @@ class _ServiceDetailsPageState extends State<ServiceDetailsPage>
                       ),
                       Expanded(
                           child: Text(
-                            "Save \u20B9 ${discountPrice.toString()}",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 13,
-                                color: Colors.greenAccent),
-                          )),
+                        "Save \u20B9 ${discountPrice.toString()}",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 13,
+                            color: Colors.greenAccent),
+                      )),
                       AvatarGlow(
                         endRadius: 40,
                         glowColor: Colors.red,
@@ -182,7 +188,10 @@ class _ServiceDetailsPageState extends State<ServiceDetailsPage>
                 ListTile(
                   title: Text(
                     "Details :",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
                   ),
                   subtitle: Text(
                     widget.productDetailDetails,
@@ -196,7 +205,7 @@ class _ServiceDetailsPageState extends State<ServiceDetailsPage>
                     Text(
                       "Quantity",
                       style:
-                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     Text("                                                  "),
                     IconButton(
@@ -219,7 +228,7 @@ class _ServiceDetailsPageState extends State<ServiceDetailsPage>
                     Text(
                       no.toString(),
                       style:
-                      TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     ),
                     IconButton(
                       icon: CircleAvatar(
@@ -251,7 +260,7 @@ class _ServiceDetailsPageState extends State<ServiceDetailsPage>
                     Text(
                       "    item price             =",
                       style:
-                      TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       widget.productDetailPrice,
@@ -265,7 +274,7 @@ class _ServiceDetailsPageState extends State<ServiceDetailsPage>
                     Text(
                       "    No of items          =",
                       style:
-                      TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       no.toString(),
@@ -279,7 +288,7 @@ class _ServiceDetailsPageState extends State<ServiceDetailsPage>
                     Text(
                       "    Service Charge    =",
                       style:
-                      TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       charge.toString(),
@@ -294,18 +303,17 @@ class _ServiceDetailsPageState extends State<ServiceDetailsPage>
                     Text(
                       "    Total                 =",
                       style:
-                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       total.toString(),
                       style:
-                      TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     ),
                   ],
                 ),
                 Divider(),
               ],
-
             ),
           ),
           Row(
@@ -381,7 +389,6 @@ class _ServiceDetailsPageState extends State<ServiceDetailsPage>
       ),
     );
   }
-
 
 //Below method are for animation on image when onTap function is called..
 

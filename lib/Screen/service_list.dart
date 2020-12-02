@@ -7,6 +7,7 @@ import 'notification_page.dart';
 
 class ServiceList extends StatefulWidget {
   final categoryName;
+
   ServiceList({this.categoryName});
 
   @override
@@ -63,12 +64,12 @@ class _ServiceListState extends State<ServiceList> {
             serviceTitle: "Hair Spa(Short)",
           ),
           Divider(),
-
           SingleService(
             serviceImage: AssetImage("image/etroplus.jpeg"),
             serviceOldPrice: 500,
             servicePrice: 250,
-            serviceSubTitle: "Get Extra 30% benefits on Hair adhasd asdasdjsdnacn asckjajsdja"
+            serviceSubTitle:
+                "Get Extra 30% benefits on Hair adhasd asdasdjsdnacn asckjajsdja"
                 "asdkjasj   asdlkasdlkasd asdlkasdasd"
                 "asdlkassdlkasdmasdkasd as"
                 "sdasdasdasdsad"
@@ -76,7 +77,6 @@ class _ServiceListState extends State<ServiceList> {
             serviceTitle: "Hair Spa(Short Hairs)",
           ),
           Divider(),
-
           SingleService(
             serviceImage: AssetImage("image/etroplus.jpeg"),
             serviceOldPrice: 500,
@@ -85,7 +85,6 @@ class _ServiceListState extends State<ServiceList> {
             serviceTitle: "Hair Spa (Short Hair)",
           ),
           Divider(),
-
           SingleService(
             serviceImage: AssetImage("image/etroplus.jpeg"),
             serviceOldPrice: 500,
@@ -94,7 +93,6 @@ class _ServiceListState extends State<ServiceList> {
             serviceTitle: "Hair Spa(Short Hair) ",
           ),
           Divider(),
-
           SingleService(
             serviceImage: AssetImage("image/etroplus.jpeg"),
             serviceOldPrice: 500,
@@ -103,15 +101,11 @@ class _ServiceListState extends State<ServiceList> {
             serviceTitle: "Hair Spa(Short Hair )",
           ),
           Divider(),
-
         ],
       ),
     );
   }
 }
-
-
-
 
 //Method for single service list
 
@@ -140,8 +134,17 @@ class _SingleServiceState extends State<SingleService> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => ServiceDetailsPage(heroTag: widget.serviceTitle,productDetailName: widget.serviceTitle,productDetailOldPrice: widget.serviceOldPrice.toString(),productDetailPrice: widget.servicePrice.toString(),productDetailDetails: widget.serviceSubTitle,productDetailQuantity: itemNo,)));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ServiceDetailsPage(
+                      heroTag: widget.serviceTitle,
+                      productDetailName: widget.serviceTitle,
+                      productDetailOldPrice: widget.serviceOldPrice.toString(),
+                      productDetailPrice: widget.servicePrice.toString(),
+                      productDetailDetails: widget.serviceSubTitle,
+                      productDetailQuantity: itemNo,
+                    )));
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -233,10 +236,9 @@ class _SingleServiceState extends State<SingleService> {
                               ),
                               onPressed: () {
                                 setState(() {
-                                  if(itemNo!=1)
-                                    {
-                                      itemNo--;
-                                    }
+                                  if (itemNo != 1) {
+                                    itemNo--;
+                                  }
                                 });
                               }),
                         ),
